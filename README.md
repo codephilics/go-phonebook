@@ -5,8 +5,9 @@
 Create `.env` and run `docker-compose up`
 
 ## ENV
-POSTGRES_URL=postgres://postgres:yourpassword@postgres/postgres?sslmode=disable
-PORT=
+`POSTGRES_URL=postgres://postgres:yourpassword@postgres/postgres?sslmode=disable`
+
+`PORT=`
 
 ## Routes
 
