@@ -35,3 +35,27 @@ Create `.env` and run `docker-compose up`
 		Name("Logout").
 		Methods("GET").
 		Path("/logout").
+		
+		Name("ServePhoneBookList").
+		Methods("GET").
+		Path("/phonebooks").
+	
+		Name("ServeNewPhoneBookForm").
+		Methods("GET").
+		Path("/phonebooks/new").
+
+		Name("CreatePhoneBook").
+		Methods("POST").
+		Path("/phonebooks/new").
+
+		Name("ServeUpdatePhoneBookForm").
+		Methods("GET").
+		Path("/phonebooks/{id:[0-9]+}/edit").
+
+		Name("UpdatePhoneBook").
+		Methods("POST").
+		Path("/phonebooks/{id:[0-9]+}/edit").
+
+		Name("DeletePhoneBook").
+		Methods("POST").
+		Path("/phonebooks/{id:[0-9]+}/delete").
