@@ -1,5 +1,6 @@
 # GoAPI
 
+I didn't use any Go framework I just use here Gorilla toolkit and Gorm to build my application on to follow up with Framework pattern.
 
 ## To run the project
 Create `.env` and run `docker-compose up`
