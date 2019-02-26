@@ -26,10 +26,17 @@ func main() {
 		log.Fatal(err)
 	}
 
+	phoneBookGORM := models.NewPhoneBookGORM(db)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	userGORM.AutoMigrate()
+	phoneBookGORM.AutoMigrate()
 
 	indexC := controllers.NewIndex()
 	usersC := controllers.NewUsers(userGORM)
+	phoneBooksC := controllers.NewPhoneBooks(phoneBookGORM)
 
 	r := mux.NewRouter()
 
@@ -70,6 +77,41 @@ func main() {
 		Methods("GET").
 		Path("/logout").
 		HandlerFunc(usersC.HandleLogout)
+
+	r.NewRoute().
+		Name("ServePhoneBookList").
+		Methods("GET").
+		Path("/phonebooks").
+		HandlerFunc(phoneBooksC.ServePhoneBookList)
+	r.NewRoute().
+		Name("ServeNewPhoneBookForm").
+		Methods("GET").
+		Path("/phonebooks/new").
+		HandlerFunc(phoneBooksC.ServeNewPhoneBookForm)
+
+	r.NewRoute().
+		Name("CreatePhoneBook").
+		Methods("POST").
+		Path("/phonebooks/new").
+		HandlerFunc(phoneBooksC.CreatePhoneBook)
+
+	r.NewRoute().
+		Name("ServeUpdatePhoneBookForm").
+		Methods("GET").
+		Path("/phonebooks/{id:[0-9]+}/edit").
+		HandlerFunc(phoneBooksC.ServeUpdatePhoneBookForm)
+
+	r.NewRoute().
+		Name("UpdatePhoneBook").
+		Methods("POST").
+		Path("/phonebooks/{id:[0-9]+}/edit").
+		HandlerFunc(phoneBooksC.UpdatePhoneBook)
+
+	r.NewRoute().
+		Name("DeletePhoneBook").
+		Methods("POST").
+		Path("/phonebooks/{id:[0-9]+}/delete").
+		HandlerFunc(phoneBooksC.DeletePhoneBook)
 
 	go func() {
 		err := http.ListenAndServe(":"+os.Getenv("PORT"), r)
