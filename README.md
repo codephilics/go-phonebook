@@ -1,4 +1,4 @@
-# goapi
+# GoAPI
 
 
 ## To run the project
