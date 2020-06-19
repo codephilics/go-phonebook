@@ -1,12 +1,12 @@
 # GoAPI
 
-I challenge myself to build a web application without using any Go framework. I used Gorilla toolkit and GORM to build this application on to follow up with the MVC Framework pattern.
+I challenge myself to build a web application without using any Go framework. I used Gorilla toolkit and GORM to build this application follow up with the MVC Framework pattern.
 
 ## To run the project
 Create `.env` and run `docker-compose up`
 
 ## Dependencies
-* Go 
+* go 1.13
 * PostgreSQL : As data storage
 * Docker
 * Docker Compose
