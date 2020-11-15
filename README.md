@@ -11,6 +11,8 @@ A simple phonebook app using Golang and GORM.
 * Docker
 * Docker Compose
 
+# Prepare Workspace
+
 Clone Project
 
 ```bash
