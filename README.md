@@ -1,77 +1,38 @@
 # GoAPI
 
-I challenge myself to build a web application without using any Go framework. I used Gorilla toolkit and GORM to build this application follow up with the MVC Framework pattern.
+A simple phonebook app using Golang and GORM.
 
-## To run the project
-Create `.env` and run `docker-compose up`
+# Development: Getting Started
 
-## Dependencies
-* go 1.13
-* PostgreSQL : As data storage
+# Requirement
+
+* go 1.13+
+* PostgreSQL
 * Docker
 * Docker Compose
 
-## ENV
+Clone Project
 
+```bash
+$ git clone https://github.com/codephilics/go-phonebook.git
+$ cd go-phonebook
 ```
-POSTGRES_URL=postgres://postgres:yourpassword@postgres/postgres?sslmode=disable`
 
+Create .env: 
+
+```bash
+$ nano .env
+```
+
+Set .env values: 
+
+```bash
+POSTGRES_URL=postgres://postgres:yourpassword@postgres/postgres?sslmode=disable
 PORT=8080
 ```
 
-## Run complete system
+To run the project
 
+```bash
+$ docker-compose up
 ```
-docker-compose up -d
-```
-
-
-## Endpoints
-
-		Name("HomePage").
-		Methods("GET").
-		Path("/").
-    
-		Name("ServeSignupForm").
-		Methods("GET").
-		Path("/register").
-	
-		Name("RegisterAccount").
-		Methods("POST").
-		Path("/register").
-	
-		Name("ServeLoginForm").
-		Methods("GET").
-		Path("/login").
-
-		Name("Login").
-		Methods("POST").
-		Path("/login").
-
-		Name("Logout").
-		Methods("GET").
-		Path("/logout").
-		
-		Name("ServePhoneBookList").
-		Methods("GET").
-		Path("/phonebooks").
-	
-		Name("ServeNewPhoneBookForm").
-		Methods("GET").
-		Path("/phonebooks/new").
-
-		Name("CreatePhoneBook").
-		Methods("POST").
-		Path("/phonebooks/new").
-
-		Name("ServeUpdatePhoneBookForm").
-		Methods("GET").
-		Path("/phonebooks/{id:[0-9]+}/edit").
-
-		Name("UpdatePhoneBook").
-		Methods("POST").
-		Path("/phonebooks/{id:[0-9]+}/edit").
-
-		Name("DeletePhoneBook").
-		Methods("POST").
-		Path("/phonebooks/{id:[0-9]+}/delete").
