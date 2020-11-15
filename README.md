@@ -1,4 +1,4 @@
-# GoAPI
+# Phonebook
 
 A simple phonebook app using Golang and GORM.
 
